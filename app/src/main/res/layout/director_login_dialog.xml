@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginVertical="25dp"
+    android:background="@drawable/bgcolor2"
+    >
+
+    <TextView
+        android:id="@+id/dirTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="DIRECTOR LOGIN"
+        android:textColor="#610E0D0D"
+        android:textSize="27dp"
+        android:textStyle="bold"></TextView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_below="@+id/dirTitle"
+        android:minWidth="300dp"
+        android:minHeight="300dp">
+
+    <EditText
+        android:id="@+id/DirPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30dp"
+        android:padding="3dp"
+        android:hint="PASSWORD"
+        android:textColor="#fff"
+        android:background="@drawable/bginput"
+        android:inputType="textPassword"
+        android:textSize="20dp"
+        android:gravity="center"
+
+        />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:orientation="horizontal"
+            >
+    <Button
+        android:id="@+id/directorLoginBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:text="LOGIN"
+        android:textColor="#fff"
+        android:background="@drawable/bgcolor3"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        android:padding="15dp"
+        />
+        <Button
+                android:id="@+id/directorBackBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:text="BACK"
+                android:textColor="#fff"
+                android:background="@drawable/bgcolor3"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textSize="25dp"
+                android:textStyle="bold"
+                android:padding="15dp"
+                />
+    </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

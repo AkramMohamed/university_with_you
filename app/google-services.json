@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "145660539832",
+    "firebase_url": "https://university-with-you-c7b33.firebaseio.com",
+    "project_id": "university-with-you-c7b33",
+    "storage_bucket": "university-with-you-c7b33.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:145660539832:android:2bda727014ca7aa175954d",
+        "android_client_info": {
+          "package_name": "com.example.universitywithyou"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "145660539832-k7fg03plgh9rskscmcqtq9rql8478iqd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.universitywithyou",
+            "certificate_hash": "936bd2036c2b87fc20af1aa91b02ceeccd1f0fa7"
+          }
+        },
+        {
+          "client_id": "145660539832-menk96uo3ssvctnj8b2dv7v9f4octrv9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDon_Ngjoo50qOVjPlkhmdaKB6kjQkcnGk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "145660539832-menk96uo3ssvctnj8b2dv7v9f4octrv9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

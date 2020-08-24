@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">University with you</string>
+
+    <string name="Student">Student</string>
+    <string name="Director">Director</string>
+    <string name="ListeningTeam">Listening Team</string>
+    <string name="title_activity_listening_team_homd">ListeningTeamHomd</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
+    <string name="title_activity_listening_team_home">ListeningTeamHome</string>
+</resources>

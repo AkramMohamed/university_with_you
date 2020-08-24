@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    >
+    <ImageView
+        android:id="@+id/profile_picture"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/profile_picture"
+        android:layout_margin="6dp"
+        />
+<LinearLayout
+    android:id="@+id/linearLayout"
+    android:layout_toRightOf="@+id/profile_picture"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_input">
+    <TextView
+        android:id="@+id/commentator_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="full name"
+        android:textColor="#000"
+        android:layout_margin="6dp"/>
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/comment_text"
+    android:text="comment..."
+    android:textSize="16dp"
+    android:layout_margin="10dp"/>
+</LinearLayout>
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_below="@+id/linearLayout"
+        android:layout_toRightOf="@+id/profile_picture">
+        <TextView
+            android:id="@+id/comment_time"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="time"/>
+
+        <Button
+            android:id="@+id/comment_agree"
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:background="#00FFFFFF"
+            android:text="Agree"
+            android:textAllCaps="false"
+            android:layout_toRightOf="@+id/comment_time"
+            android:layout_marginHorizontal="14dp"
+            android:gravity="center"/>
+        <TextView
+            android:id="@+id/comment_agree_co"
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:background="#00FFFFFF"
+            android:text="Agree"
+            android:textAllCaps="false"
+            android:layout_toRightOf="@+id/comment_agree"
+            android:gravity="center"
+            />
+    </RelativeLayout>
+</RelativeLayout>

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginVertical="25dp"
+
+    android:background="@drawable/bgcolor2"
+
+    >
+
+    <TextView
+        android:id="@+id/stdTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="STUDENT LOGIN"
+        android:textColor="#610E0D0D"
+        android:textSize="27dp"
+        android:textStyle="bold"
+        ></TextView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_below="@+id/stdTitle"
+        android:minWidth="300dp"
+        android:minHeight="300dp">
+
+        <EditText
+            android:id="@+id/std_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="30dp"
+            android:padding="3dp"
+            android:hint="email"
+            android:autoSizeTextType="uniform"
+            android:textColor="#fff"
+            android:background="@drawable/bginput"
+            android:inputType="textEmailAddress"
+            android:gravity="center"
+            android:layout_marginBottom="10dp"
+            />
+        <EditText
+            android:id="@+id/std_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="30dp"
+            android:padding="3dp"
+            android:hint="password"
+            android:textColor="#fff"
+            android:background="@drawable/bginput"
+            android:inputType="textPassword"
+            android:textSize="20dp"
+            android:gravity="center"
+
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:weightSum="1"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="30dp"
+        >
+        <Button
+            android:id="@+id/studentLoginBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:layout_marginHorizontal="10dp"
+            android:text="LOGIN"
+            android:textColor="#fff"
+            android:background="@drawable/bgcolor3"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textSize="25dp"
+            android:textStyle="bold"
+            android:padding="15dp"
+            />
+        <Button
+            android:id="@+id/studentBackBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:layout_marginHorizontal="10dp"
+            android:text="BACK"
+            android:textColor="#fff"
+            android:background="@drawable/bgcolor3"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textSize="25dp"
+            android:textStyle="bold"
+            android:padding="15dp"
+            />
+    </LinearLayout>
+</RelativeLayout>

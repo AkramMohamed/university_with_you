@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ChatHomeUser"
+    android:background="#F5F3F3">
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="16dp"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    android:id="@+id/adminChat"
+    android:background="@drawable/bg_white_item"
+    android:padding="16dp"
+    android:elevation="10dp">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp">
+        <ImageView
+            android:id="@+id/imageAdmin"
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/profile_picture"
+            android:padding="2dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="8dp"
+            android:text="@string/Director"
+            android:textColor="#000"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/admin_message_notif"
+            app:layout_constraintHorizontal_bias="0.093"
+            app:layout_constraintStart_toEndOf="@+id/imageAdmin"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="140dp"
+            android:layout_height="20dp"
+            android:text="the last message..."
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/admin_message_notif"
+            app:layout_constraintHorizontal_bias="0.155"
+            app:layout_constraintStart_toEndOf="@+id/imageAdmin"
+            app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="00:00"
+            app:layout_constraintBottom_toBottomOf="@id/textView8"
+            app:layout_constraintEnd_toStartOf="@+id/admin_message_notif"
+            app:layout_constraintStart_toEndOf="@+id/textView8"
+            app:layout_constraintTop_toTopOf="@+id/textView8" />
+
+        <ImageView
+            android:id="@+id/admin_message_notif"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/notify"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:visibility="invisible"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>
+   <RelativeLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:layout_marginTop="14dp"
+       app:layout_constraintEnd_toEndOf="parent"
+       app:layout_constraintHorizontal_bias="0.0"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintTop_toBottomOf="@+id/adminChat"
+       android:background="@drawable/bg_white_item"
+       android:paddingVertical="16dp"
+       android:elevation="10dp"
+       android:onClick="teamChat">
+       <androidx.constraintlayout.widget.ConstraintLayout
+           android:layout_width="match_parent"
+           android:layout_height="60dp"
+           android:layout_marginTop="4dp"
+           >
+           <LinearLayout
+               android:id="@+id/profile_picture"
+               android:layout_width="65dp"
+               android:layout_height="65dp"
+               android:gravity="center"
+               android:background="@drawable/bg_circle_img"
+               app:layout_constraintBottom_toBottomOf="parent"
+               app:layout_constraintStart_toStartOf="parent"
+               app:layout_constraintTop_toTopOf="parent"
+               android:elevation="2dp">
+               <ImageView
+                   android:layout_width="50dp"
+                   android:layout_height="50dp"
+                   android:background="@drawable/team"
+
+                   />
+           </LinearLayout>
+
+
+           <TextView
+               android:id="@+id/full_name"
+               style="@style/Widget.AppCompat.TextView"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_marginTop="4dp"
+               android:fontFamily="sans-serif-condensed-medium"
+               android:gravity="center_vertical"
+               android:paddingHorizontal="8dp"
+               android:text="@string/ListeningTeam"
+               android:textColor="#000"
+               android:textSize="18sp"
+               android:textStyle="bold"
+               app:layout_constraintEnd_toStartOf="@+id/team_message_notif"
+               app:layout_constraintHorizontal_bias="0.093"
+               app:layout_constraintStart_toEndOf="@+id/profile_picture"
+               app:layout_constraintTop_toTopOf="parent" />
+
+           <TextView
+               android:id="@+id/last_message_user"
+               android:layout_width="160dp"
+
+               android:layout_height="20dp"
+               android:text="the last message..."
+               app:layout_constraintBottom_toBottomOf="parent"
+               app:layout_constraintEnd_toStartOf="@+id/team_message_notif"
+               app:layout_constraintHorizontal_bias="0.155"
+               app:layout_constraintStart_toEndOf="@+id/profile_picture"
+               app:layout_constraintTop_toBottomOf="@+id/full_name" />
+
+           <TextView
+               android:id="@+id/last_message_time_user"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="00:00"
+               app:layout_constraintBottom_toBottomOf="@+id/last_message_user"
+               app:layout_constraintEnd_toStartOf="@+id/team_message_notif"
+               app:layout_constraintStart_toEndOf="@+id/last_message_user"
+               app:layout_constraintTop_toTopOf="@id/last_message_user" />
+
+           <ImageView
+               android:id="@+id/team_message_notif"
+               android:layout_width="20dp"
+               android:layout_height="20dp"
+               android:layout_marginEnd="16dp"
+               android:background="@drawable/notify"
+               app:layout_constraintBottom_toBottomOf="parent"
+               app:layout_constraintEnd_toEndOf="parent"
+               app:layout_constraintTop_toTopOf="parent"
+               android:visibility="invisible"/>
+       </androidx.constraintlayout.widget.ConstraintLayout>
+   </RelativeLayout>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
