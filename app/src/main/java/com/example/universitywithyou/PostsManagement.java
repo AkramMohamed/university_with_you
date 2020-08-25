@@ -56,8 +56,6 @@ public class PostsManagement extends AppCompatActivity {
 
     public void addPost(View view) {
         Intent intent = new Intent(this,AddPost.class);
-        if (list.isEmpty()){intent.putExtra("post_id",1);}
-        else {intent.putExtra("post_id",list.get(list.size()-1).getId_post()+1);}
         startActivity(intent);
     }
 }

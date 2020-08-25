@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -30,7 +29,7 @@ public class CommentsList extends AppCompatActivity {
     private Comment comment ;
     private DatabaseReference myRef ;
     private AdapterComment adapterComment;
-    int post_id;
+    String post_id;
     Post post ;
     User user ;
     String user_id , commentator ;

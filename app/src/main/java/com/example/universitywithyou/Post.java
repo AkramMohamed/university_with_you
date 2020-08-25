@@ -1,14 +1,14 @@
 package com.example.universitywithyou;
 
 public class Post {
-    private int id_post ;
+    private String id_post ;
     private String title , text_post, picture , directedTo , time ;
     private int validPco , commentPco ;
 
     public Post() {
     }
 
-    public Post(int id_post, String title, String text_post, String picture, String directedTo, String time, int validPco, int commentPco) {
+    public Post(String id_post, String title, String text_post, String picture, String directedTo, String time, int validPco, int commentPco) {
         this.id_post = id_post;
         this.title = title;
         this.text_post = text_post;
@@ -19,11 +19,11 @@ public class Post {
         this.commentPco = commentPco;
     }
 
-    public int getId_post() {
+    public String getId_post() {
         return id_post;
     }
 
-    public void setId_post(int id_post) {
+    public void setId_post(String id_post) {
         this.id_post = id_post;
     }
 

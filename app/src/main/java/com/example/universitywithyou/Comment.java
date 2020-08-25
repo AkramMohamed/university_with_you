@@ -4,14 +4,14 @@ import java.io.Serializable;
 
 public class Comment implements  Serializable {
     private String id_comment, id_user;
-    private int id_post;
+    private String id_post;
     private String comment_text, time, commentator;
     private int agreed_co;
 
     public Comment() {
     }
 
-    public Comment(String id_comment, String id_user, int id_post, String comment_text, String time, String commentator, int agreed_co) {
+    public Comment(String id_comment, String id_user, String id_post, String comment_text, String time, String commentator, int agreed_co) {
         this.id_comment = id_comment;
         this.id_user = id_user;
         this.id_post = id_post;
@@ -37,11 +37,11 @@ public class Comment implements  Serializable {
         this.id_user = id_user;
     }
 
-    public int getId_post() {
+    public String getId_post() {
         return id_post;
     }
 
-    public void setId_post(int id_post) {
+    public void setId_post(String id_post) {
         this.id_post = id_post;
     }
 

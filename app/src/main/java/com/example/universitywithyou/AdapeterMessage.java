@@ -2,10 +2,13 @@
 package com.example.universitywithyou;
 
         import android.app.Activity;
+        import android.content.Intent;
         import android.view.LayoutInflater;
         import android.view.View;
         import android.view.ViewGroup;
         import android.widget.ArrayAdapter;
+        import android.widget.ImageButton;
+        import android.widget.ImageView;
         import android.widget.TextView;
 
         import androidx.annotation.NonNull;
@@ -13,6 +16,7 @@ package com.example.universitywithyou;
 
         import com.google.firebase.auth.FirebaseAuth;
         import com.google.firebase.auth.FirebaseUser;
+        import com.squareup.picasso.Picasso;
 
         import java.util.List;
 
@@ -38,7 +42,7 @@ public class AdapeterMessage  extends ArrayAdapter<Message> {
 
     @NonNull
     @Override
-    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+    public View getView(final int position, @Nullable View convertView, @NonNull ViewGroup parent) {
 
         LayoutInflater layoutInflater = activity.getLayoutInflater();
 
@@ -52,15 +56,46 @@ public class AdapeterMessage  extends ArrayAdapter<Message> {
                     TextView time = viewLeft.findViewById(R.id.message_time);
                     String t = list.get(position).getTime();
                     time.setText(t);
+
                     TextView messageLeft = viewLeft.findViewById(R.id.message_text_left);
                     messageLeft.setText(list.get(position).getMessage_text());
+
+                    ImageButton imageView = viewLeft.findViewById(R.id.message_img_left);
+                    if (!list.get(position).getPicture().equals("none")){
+                        imageView.setVisibility(View.VISIBLE);
+                    Picasso.get().load(list.get(position).getPicture()).resize(320,0).into(imageView);
+                    }
+                    imageView.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent intent = new Intent(activity,FullscreenActivity.class);
+                            intent.putExtra("image_url",list.get(position).getPicture());
+                            activity.startActivity(intent);
+                        }
+                    });
+
                     return viewLeft;
                 } else {
                     TextView time = viewRight.findViewById(R.id.message_time);
                     String t = list.get(position).getTime();
                     time.setText(t);
+
                     TextView messageRight = viewRight.findViewById(R.id.message_text_right);
                     messageRight.setText(list.get(position).getMessage_text());
+
+                    ImageButton imageView = viewRight.findViewById(R.id.message_img_right);
+                    if (!list.get(position).getPicture().equals("none")){
+                        imageView.setVisibility(View.VISIBLE);
+                    Picasso.get().load(list.get(position).getPicture()).resize(320,0).into(imageView);
+                        }
+                    imageView.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent intent = new Intent(activity,FullscreenActivity.class);
+                            intent.putExtra("image_url",list.get(position).getPicture());
+                            activity.startActivity(intent);
+                        }
+                    });
                     return viewRight;
                 }
             } else {
@@ -70,13 +105,42 @@ public class AdapeterMessage  extends ArrayAdapter<Message> {
                     time.setText(t);
                     TextView messageLeft = viewLeft.findViewById(R.id.message_text_left);
                     messageLeft.setText(list.get(position).getMessage_text());
+
+                    ImageButton imageView = viewLeft.findViewById(R.id.message_img_left);
+                    if (!list.get(position).getPicture().equals("none")){
+                        imageView.setVisibility(View.VISIBLE);
+                    Picasso.get().load(list.get(position).getPicture()).resize(320,0).into(imageView);
+                    }
+                    imageView.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent intent = new Intent(activity,FullscreenActivity.class);
+                            intent.putExtra("image_url",list.get(position).getPicture());
+                            activity.startActivity(intent);
+                        }
+                    });
                     return viewLeft;
                 } else {
                     TextView time = viewRight.findViewById(R.id.message_time);
                     String t = list.get(position).getTime();
                     time.setText(t);
+
                     TextView messageRight = viewRight.findViewById(R.id.message_text_right);
                     messageRight.setText(list.get(position).getMessage_text());
+
+                    ImageButton imageView = viewRight.findViewById(R.id.message_img_right);
+                    if (!list.get(position).getPicture().equals("none")){
+                        imageView.setVisibility(View.VISIBLE);
+                    Picasso.get().load(list.get(position).getPicture()).resize(320,0).into(imageView);
+                    }
+                    imageView.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent intent = new Intent(activity,FullscreenActivity.class);
+                            intent.putExtra("image_url",list.get(position).getPicture());
+                            activity.startActivity(intent);
+                        }
+                    });
                     return viewRight;
                 }
             }

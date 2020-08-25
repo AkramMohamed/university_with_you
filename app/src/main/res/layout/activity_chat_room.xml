@@ -8,15 +8,27 @@
 <RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_above="@+id/constraintLayout">
+    android:layout_above="@+id/message_img">
     <ListView
         android:id="@+id/lv_messages"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:stackFromBottom="true"
-
-       />
+        />
 </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/message_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/constraintLayout"
+        android:visibility="gone">
+        <ImageView
+            android:id="@+id/message_img_trying"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            />
+    </RelativeLayout>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
@@ -49,6 +61,7 @@
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:srcCompat="@android:drawable/ic_menu_gallery" />
+            app:srcCompat="@android:drawable/ic_menu_gallery"
+            android:onClick="uploadImage"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </RelativeLayout>
