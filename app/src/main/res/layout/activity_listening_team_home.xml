@@ -6,6 +6,19 @@
     android:layout_height="match_parent"
     tools:context=".ListeningTeamHome">
 
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/lth_appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        android:theme="@style/ThemeOverlay.AppCompat.Light"
+        android:backgroundTint="#fff"
+        app:liftOnScroll="true">
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/home_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </com.google.android.material.appbar.AppBarLayout>
     <Button
         android:id="@+id/button"
         android:layout_width="142dp"
@@ -20,10 +33,10 @@
     <Button
         android:layout_width="142dp"
         android:layout_height="82dp"
+        android:onClick="Posts"
         android:text="Posts"
         app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:onClick="Posts"/>
+        app:layout_constraintTop_toBottomOf="@+id/lth_appbar" />
 </androidx.constraintlayout.widget.ConstraintLayout>

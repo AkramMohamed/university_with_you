@@ -20,10 +20,10 @@
         app:layout_constraintVertical_bias="0.096" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/posts"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="LogOut"
+        android:text="Posts"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -32,10 +32,10 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Chat"
+        android:text="Chats"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button2"
+        app:layout_constraintTop_toBottomOf="@+id/posts"
         android:onClick="chat"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,12 +4,30 @@
     <string name="Student">Student</string>
     <string name="Director">Director</string>
     <string name="ListeningTeam">Listening Team</string>
-    <string name="title_activity_listening_team_homd">ListeningTeamHomd</string>
     <string name="tab_text_1">Tab 1</string>
     <string name="tab_text_2">Tab 2</string>
-    <string name="title_activity_listening_team_home">ListeningTeamHome</string>
+    <string name="title_activity_listening_team_home">Home</string>
+    <string name="title_activity_post_management">Posts</string>
 
     <string name="title_activity_fullscreen">FullscreenActivity</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
+
+    <string-array name="speciality">
+        <item>none</item>
+        <item>1er année</item>
+        <item>2eme année</item>
+        <item>3eme année  TI</item>
+        <item>3eme année  GL</item>
+        <item>3eme année  SI</item>
+    </string-array>
+
+    <string-array name="directedTo">
+        <item>ALL</item>
+        <item>1er année</item>
+        <item>2eme année</item>
+        <item>3eme année  TI</item>
+        <item>3eme année  GL</item>
+        <item>3eme année  SI</item>
+    </string-array>
 </resources>

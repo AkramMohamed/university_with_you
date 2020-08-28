@@ -3,17 +3,23 @@ package com.example.universitywithyou;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.ContentResolver;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.webkit.MimeTypeMap;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -28,16 +34,23 @@ import com.squareup.picasso.Picasso;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-public class AddPost extends AppCompatActivity {
+public class AddPost extends AppCompatActivity implements AdapterView.OnItemSelectedListener  {
 EditText post_text ;
 Button put_post ;
 String post_id ;
 DatabaseReference myRef  ;
 String ref ;
+Spinner spinner ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_post);
+
+        spinner = findViewById(R.id.spinner);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,R.array.directedTo,android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
+        spinner.setOnItemSelectedListener(this);
 
         imageView = findViewById(R.id.post_img_trying);
         relativeLayout_img = findViewById(R.id.post_img);
@@ -46,7 +59,26 @@ String ref ;
         myRef = FirebaseDatabase.getInstance().getReference().child("Posts").child(ref);
 
         post_text = findViewById(R.id.post_text_add);
-        put_post = findViewById(R.id.put_post);
+        put_post = findViewById(R.id.add_post);
+
+        post_text.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if (s.toString().equals("")){
+                    put_post.setEnabled(false);
+                }else {put_post.setEnabled(true);}
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
 
 
     }
@@ -67,6 +99,7 @@ String ref ;
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if(requestCode == 1 && resultCode == RESULT_OK && data != null && data.getData() != null){
+            put_post.setEnabled(true);
             mImageUri= data.getData();
             Picasso.get().load(mImageUri).into(imageView);
             relativeLayout_img.setVisibility(View.VISIBLE);
@@ -96,7 +129,7 @@ String ref ;
                                     @Override
                                     public void onSuccess(Uri uri) {
                                         final String downloadUrl = uri.toString();
-                                        myRef.setValue(new Post(ref,"",post_text.getText().toString().trim(),downloadUrl,"",time,0,0));
+                                        myRef.setValue(new Post(ref,"",post_text.getText().toString().trim(),downloadUrl,directedTo,time,0,0));
                                         relativeLayout_img.setVisibility(View.GONE);
                                     }
                                 }).addOnFailureListener(new OnFailureListener() {
@@ -119,11 +152,21 @@ String ref ;
             }else {
                 if (! post_text.getText().toString().equals("")){
                     myRef.setValue(new Post(ref,""
-                            ,post_text.getText().toString().trim(),"none","",time,0,0));
+                            ,post_text.getText().toString().trim(),"none",directedTo,time,0,0));
                     relativeLayout_img.setVisibility(View.GONE);
                     finish();}
             }
 
+
+    }
+String directedTo;
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        directedTo = parent.getItemAtPosition(position).toString();
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
 
     }
 }

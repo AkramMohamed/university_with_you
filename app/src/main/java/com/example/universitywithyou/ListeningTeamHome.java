@@ -2,6 +2,7 @@ package com.example.universitywithyou;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -18,6 +19,8 @@ public class ListeningTeamHome extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_listening_team_home);
+        Toolbar toolbar = findViewById(R.id.home_toolbar);
+        setSupportActionBar(toolbar);
     }
 
     public void chatAccounts(View view) {
@@ -26,7 +29,7 @@ public class ListeningTeamHome extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.setting_menu,menu);
+        inflater.inflate(R.menu.home_menu,menu);
         return true;
     }
 

@@ -52,7 +52,7 @@ public class AdapeterMessage  extends ArrayAdapter<Message> {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
             if (user.getEmail().equals("team@gmail.com")) {
-                if (!list.get(position).getSender().equals("admin")) {
+                if (!list.get(position).getSender().equals("team")) {
                     TextView time = viewLeft.findViewById(R.id.message_time);
                     String t = list.get(position).getTime();
                     time.setText(t);
@@ -99,7 +99,7 @@ public class AdapeterMessage  extends ArrayAdapter<Message> {
                     return viewRight;
                 }
             } else {
-                if (list.get(position).getSender().equals("admin")) {
+                if (list.get(position).getSender().equals("team")) {
                     TextView time = viewLeft.findViewById(R.id.message_time);
                     String t = list.get(position).getTime();
                     time.setText(t);

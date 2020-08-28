@@ -63,7 +63,7 @@ public class ChatRoom extends AppCompatActivity {
         if (user != null) {
             if (user.getEmail().equals("team@gmail.com")){
                 user_id = getIntent().getStringExtra("user_id");
-                sender = "admin";}else {
+                sender = "team";}else {
                 user_id = user.getUid();
                 sender = "Student";
             }

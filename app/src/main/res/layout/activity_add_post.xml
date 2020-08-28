@@ -7,9 +7,61 @@
     android:orientation="vertical"
     tools:context=".AddPost"
     android:background="#F0F0F0">
+
+    <RelativeLayout
+        android:id="@+id/top_Bar_posts"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="#fff"
+        android:visibility="visible"
+        android:padding="2dp">
+        <ImageButton
+            android:id="@+id/cancel"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/close"
+            android:scaleType="fitCenter"
+            android:background="#fff"
+            android:padding="10dp"
+            android:elevation="2dp"
+            android:layout_centerVertical="true"
+            />
+
+        <TextView
+            android:id="@+id/title"
+            style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="17dp"
+            android:layout_toRightOf="@id/cancel"
+            android:gravity="center_vertical"
+            android:text="Posts"
+            android:textColor="#000" />
+
+        <Button
+            android:id="@+id/add_post"
+            android:layout_width="80dp"
+            android:layout_height="40dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/bg_btn"
+            android:text="Post"
+            android:textAllCaps="false"
+            android:elevation="3dp"
+            android:scaleType="fitCenter"
+            android:padding="3dp"
+            android:onClick="addPost"
+            android:enabled="false"
+            />
+    </RelativeLayout>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="65dp"
         android:background="#fff"
         android:elevation="4dp"
         >
@@ -36,12 +88,33 @@
             android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@+id/teamPicture"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:text="directed to"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/teamPicture"
+            app:layout_constraintTop_toBottomOf="@+id/textView9"
+            app:layout_constraintVertical_bias="0.666" />
+
+        <Spinner
+            android:id="@+id/spinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            app:layout_constraintBottom_toBottomOf="@+id/textView10"
+            app:layout_constraintStart_toEndOf="@+id/textView10"
+            app:layout_constraintTop_toTopOf="@+id/textView10"
+            app:layout_constraintVertical_bias="1.0" />
     </androidx.constraintlayout.widget.ConstraintLayout>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-
+        android:layout_height="wrap_content"
+        android:paddingBottom="30dp"
+        android:background="#fff">
 
         <EditText
             android:id="@+id/post_text_add"
@@ -52,6 +125,7 @@
             android:hint="post text ..."
             android:inputType="textMultiLine"
             android:padding="12dp"
+
             android:textColor="#000"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -62,12 +136,15 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#fff">
+        android:background="#fff"
+        android:padding="8dp">
         <ImageButton
             android:id="@+id/gallery"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@android:drawable/ic_menu_gallery"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/add_image"
+            android:background="#B8B7B7"
+            android:scaleType="fitCenter"
             android:onClick="uploadImage"/>
         <RelativeLayout
             android:id="@+id/post_img"
@@ -83,11 +160,5 @@
                 />
         </RelativeLayout>
     </RelativeLayout>
-    <Button
-        android:id="@+id/put_post"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="post"
-        android:onClick="addPost"
-        />
+
 </LinearLayout>

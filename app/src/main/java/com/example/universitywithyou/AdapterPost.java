@@ -3,18 +3,18 @@ package com.example.universitywithyou;
         import android.app.Activity;
         import android.content.Intent;
         import android.view.LayoutInflater;
+        import android.view.MenuItem;
         import android.view.View;
         import android.view.ViewGroup;
         import android.widget.ArrayAdapter;
         import android.widget.Button;
         import android.widget.ImageButton;
-        import android.widget.ImageView;
+        import android.widget.PopupMenu;
         import android.widget.TextView;
         import android.widget.Toast;
 
         import androidx.annotation.NonNull;
         import androidx.annotation.Nullable;
-        import androidx.core.app.ActivityCompat;
         import androidx.core.app.ActivityOptionsCompat;
         import androidx.core.view.ViewCompat;
 
@@ -22,15 +22,15 @@ package com.example.universitywithyou;
         import com.google.gson.Gson;
         import com.squareup.picasso.Picasso;
 
-        import java.io.Serializable;
         import java.util.List;
 
 
-public class AdapterPost extends ArrayAdapter {
+public class AdapterPost extends ArrayAdapter implements View.OnClickListener,PopupMenu.OnMenuItemClickListener {
     Activity activity;
     int resource;
     List<Post> list;
 
+    Post post;
 
 
     public AdapterPost(Activity activity, int resource, List<Post> list) {
@@ -49,6 +49,8 @@ public class AdapterPost extends ArrayAdapter {
 
         View view = layoutInflater.inflate(resource,null);
 
+        post= new Post();
+        post= list.get(position);
 
         TextView textView = view.findViewById(R.id.post_text);
         if (!list.get(position).getText_post().equals("")){
@@ -85,6 +87,35 @@ public class AdapterPost extends ArrayAdapter {
             }
         });
 
+        TextView directedTo = view.findViewById(R.id.directedTo);
+        directedTo.setText(list.get(position).getDirectedTo());
+
+        ImageButton post_menu = view.findViewById(R.id.post_menu);
+        post_menu.setOnClickListener(this);
         return view;
+    }
+
+    @Override
+    public boolean onMenuItemClick(MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.action_edit :
+
+                Toast.makeText(activity, "edit"+post.getTime(), Toast.LENGTH_SHORT).show();
+                return true;
+
+            case R.id.action_delete :
+                return true;
+
+            default:
+                return false;
+        }
+    }
+
+    @Override
+    public void onClick(View v) {
+        PopupMenu popupMenu = new PopupMenu(v.getContext(),v);
+        popupMenu.inflate(R.menu.item_post_menu);
+        popupMenu.setOnMenuItemClickListener(this);
+        popupMenu.show();
     }
 }

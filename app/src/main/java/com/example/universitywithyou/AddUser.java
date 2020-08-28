@@ -5,8 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -15,14 +18,21 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class AddUser extends AppCompatActivity {
+public class AddUser extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     private EditText first_name , familly_name, card_number, email , password ;
     private Button signup ;
+    Spinner spinner ;
+    String speciality;
     FirebaseAuth mAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_user);
+        spinner = findViewById(R.id.spinner);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,R.array.speciality,android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
+        spinner.setOnItemSelectedListener(this);
 
         first_name=findViewById(R.id.first_name);
         familly_name=findViewById(R.id.family_name);
@@ -43,7 +53,7 @@ public class AddUser extends AppCompatActivity {
     }
 
     void signUpUser (final String email , final String password){
-final String speciality ="none";
+
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(AddUser.this, new OnCompleteListener<AuthResult>() {
                     @Override
@@ -63,6 +73,17 @@ final String speciality ="none";
                         }
                     }
                 });
+
+    }
+
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        speciality = parent.getItemAtPosition(position).toString();
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
 
     }
 }
