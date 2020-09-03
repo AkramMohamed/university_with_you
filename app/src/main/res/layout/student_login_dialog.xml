@@ -1,27 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginVertical="25dp"
-
+    android:layout_marginVertical="20dp"
     android:background="@drawable/bgcolor2"
-
     >
-
+    <ImageButton
+        android:id="@+id/close"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:paddingStart="6dp"
+        android:padding="8dp"
+        android:src="@drawable/close2"
+        android:background="@drawable/close_btn"
+        android:scaleType="centerCrop"
+        android:layout_alignParentStart="true"/>
     <TextView
         android:id="@+id/stdTitle"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="#75000000"
+        android:fontFamily="serif-monospace"
         android:gravity="center"
         android:text="STUDENT LOGIN"
-        android:textColor="#610E0D0D"
+        android:textColor="#FFFFFF"
         android:textSize="27dp"
         android:textStyle="bold"
-        ></TextView>
+        android:layout_centerHorizontal="true"
+        android:layout_marginHorizontal="10dp"
+        android:paddingVertical="8dp"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -35,11 +44,12 @@
             android:id="@+id/std_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="30dp"
+            android:layout_marginHorizontal="20dp"
             android:padding="3dp"
             android:hint="email"
+            android:textColorHint="#DD000000"
             android:autoSizeTextType="uniform"
-            android:textColor="#fff"
+            android:textColor="#000"
             android:background="@drawable/bginput"
             android:inputType="textEmailAddress"
             android:gravity="center"
@@ -49,53 +59,39 @@
             android:id="@+id/std_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="30dp"
+            android:layout_marginHorizontal="20dp"
             android:padding="3dp"
             android:hint="password"
+            android:textColorHint="#C3000000"
             android:textColor="#fff"
             android:background="@drawable/bginput"
             android:inputType="textPassword"
             android:textSize="20dp"
             android:gravity="center"
-
             />
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
-        android:weightSum="1"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:orientation="horizontal"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="30dp"
+        android:layout_marginBottom="40dp"
         >
+
         <Button
             android:id="@+id/studentLoginBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="0.5"
-            android:layout_marginHorizontal="10dp"
-            android:text="LOGIN"
-            android:textColor="#fff"
-            android:background="@drawable/bgcolor3"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginBottom="40dp"
+            android:background="@drawable/bg_btn"
+            android:backgroundTint="#E98E24AA"
+            android:fontFamily="monospace"
+            android:padding="12dp"
+            android:text="LogIn"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:textSize="25dp"
-            android:textStyle="bold"
-            android:padding="15dp"
-            />
-        <Button
-            android:id="@+id/studentBackBtn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.5"
-            android:layout_marginHorizontal="10dp"
-            android:text="BACK"
             android:textColor="#fff"
-            android:background="@drawable/bgcolor3"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:textSize="25dp"
-            android:textStyle="bold"
-            android:padding="15dp"
-            />
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
     </LinearLayout>
 </RelativeLayout>

@@ -23,7 +23,7 @@ import java.util.Calendar;
 import java.util.List;
 
 public class CommentsList extends AppCompatActivity {
-    private TextView post_text ;
+
     private ListView listView ;
     private List<Comment> list ;
     private Comment comment ;
@@ -40,7 +40,7 @@ public class CommentsList extends AppCompatActivity {
         setContentView(R.layout.activity_comments_list);
         myRef = FirebaseDatabase.getInstance().getReference() ;
         comment_text = findViewById(R.id.comment_text);
-        post_text = findViewById(R.id.post_text);
+
 
      //   post = (Post) getIntent().getSerializableExtra("Post");
 
@@ -48,7 +48,7 @@ public class CommentsList extends AppCompatActivity {
         if(getIntent().hasExtra("Post")) {
             String  data = getIntent().getStringExtra("Post");
             post = new Gson().fromJson(data, Post.class);
-            post_text.setText(post.getText_post());
+
             post_id = post.getId_post();
         }
         setCommentsList();
@@ -106,5 +106,9 @@ public class CommentsList extends AppCompatActivity {
                     new Comment("",user_id,post_id,comment_text.getText().toString(),time,commentator,0));
         }
         comment_text.setText("") ;
+    }
+
+    public void close(View view) {
+        finish();
     }
 }

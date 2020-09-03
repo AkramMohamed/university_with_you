@@ -1,7 +1,10 @@
 package com.example.universitywithyou;
 
         import android.app.Activity;
+        import android.app.AlertDialog;
+        import android.content.DialogInterface;
         import android.content.Intent;
+        import android.graphics.Color;
         import android.view.LayoutInflater;
         import android.view.MenuItem;
         import android.view.View;
@@ -9,16 +12,21 @@ package com.example.universitywithyou;
         import android.widget.ArrayAdapter;
         import android.widget.Button;
         import android.widget.ImageButton;
+        import android.widget.ImageView;
         import android.widget.PopupMenu;
         import android.widget.TextView;
         import android.widget.Toast;
 
         import androidx.annotation.NonNull;
         import androidx.annotation.Nullable;
+        import androidx.constraintlayout.widget.ConstraintLayout;
         import androidx.core.app.ActivityOptionsCompat;
         import androidx.core.view.ViewCompat;
 
 
+        import com.google.firebase.auth.FirebaseAuth;
+        import com.google.firebase.database.FirebaseDatabase;
+        import com.google.firebase.storage.FirebaseStorage;
         import com.google.gson.Gson;
         import com.squareup.picasso.Picasso;
 
@@ -51,6 +59,15 @@ public class AdapterPost extends ArrayAdapter implements View.OnClickListener,Po
 
         post= new Post();
         post= list.get(position);
+
+        ImageView posetPicture = view.findViewById(R.id.posterPicture);
+        TextView poster = view.findViewById(R.id.poster);
+        ConstraintLayout constraintLayout = view.findViewById(R.id.constrain);
+        if (post.getByDirector()){
+            posetPicture.setImageResource(R.drawable.director);
+            poster.setText("Director");
+           // constraintLayout.setBackgroundColor(Color.parseColor("#D7EEEC"));
+        }
 
         TextView textView = view.findViewById(R.id.post_text);
         if (!list.get(position).getText_post().equals("")){
@@ -104,6 +121,31 @@ public class AdapterPost extends ArrayAdapter implements View.OnClickListener,Po
                 return true;
 
             case R.id.action_delete :
+                AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+                builder.setCancelable(false);
+                builder.setMessage("Are you sure you want delete this post")
+                        .setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                //delete comments
+                                FirebaseDatabase.getInstance().getReference().child("Comments").child("post:"+post.getId_post()).removeValue();
+                                //delete picture
+                                FirebaseStorage.getInstance().getReferenceFromUrl(post.getPicture()).delete();
+                                //delete post
+                                FirebaseDatabase.getInstance().getReference().child("Posts").child(post.getId_post()).removeValue();
+
+
+                            }
+                        })
+                        .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.cancel();
+                            }
+                        });
+                AlertDialog alertDialog = builder.create();
+                alertDialog.show();
+
                 return true;
 
             default:

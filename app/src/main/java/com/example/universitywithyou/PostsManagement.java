@@ -113,15 +113,14 @@ public class PostsManagement extends AppCompatActivity {
                 Intent intent = new Intent(this,AddPost.class);
                 startActivity(intent);
 
-                break;
+            break;
+
             case R.id.logout_action:
                 FirebaseAuth.getInstance().signOut();
                 startActivity(new Intent(PostsManagement.this,Login.class));
                 finish();
 
             break;
-
-
 
         }
 

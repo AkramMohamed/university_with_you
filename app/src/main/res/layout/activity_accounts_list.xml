@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ChatAccountsList">
+    tools:context=".AccountsList">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/al_appbar"
@@ -13,10 +13,9 @@
         app:layout_constraintTop_toTopOf="parent"
         android:theme="@style/ThemeOverlay.AppCompat.Light"
         android:backgroundTint="#fff"
-        app:liftOnScroll="true"
         >
         <androidx.appcompat.widget.Toolbar
-            android:id="@+id/chat_accounts_list_toolbar"
+            android:id="@+id/accounts_list_toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_scrollFlags="scroll|enterAlways"/>

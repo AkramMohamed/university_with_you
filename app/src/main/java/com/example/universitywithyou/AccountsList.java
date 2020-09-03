@@ -2,27 +2,17 @@ package com.example.universitywithyou;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
 import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.Typeface;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.SearchView;
-import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -34,21 +24,18 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-
-public class ChatAccountsList extends AppCompatActivity {
-    ListView listView ;
-    List<User> list ;
-    User user ;
-    DatabaseReference myRef ;
-    AdapterUser adapterUser ;
-
-
+public class AccountsList extends AppCompatActivity {
+    private ListView listView ;
+    private List<User> list ;
+    private User user ;
+    private DatabaseReference myRef ;
+    private AdapterUser adapterUser ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_chat_accounts_list);
+        setContentView(R.layout.activity_accounts_list);
 
-        Toolbar toolbar = findViewById(R.id.chat_accounts_list_toolbar);
+        Toolbar toolbar = findViewById(R.id.accounts_list_toolbar);
         setSupportActionBar(toolbar);
 
         setAccountList();
@@ -56,21 +43,19 @@ public class ChatAccountsList extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(ChatAccountsList.this,ChatRoom.class);
+                Intent intent = new Intent(AccountsList.this,UserProfile.class);
                 intent.putExtra("user_id",list.get(position).getId_user());
                 startActivity(intent);
             }
         });
-
     }
-
 
     private void setAccountList() {
         listView = findViewById(R.id.lv_account);
         list = new ArrayList<User>();
         user = new User();
         myRef = FirebaseDatabase.getInstance().getReference() ;
-        adapterUser = new AdapterUser(this,R.layout.item_user_chat_account,list);
+        adapterUser = new AdapterUser(this,R.layout.item_user_account,list);
 
         myRef.child("Users").addValueEventListener(new ValueEventListener() {
             @Override
@@ -88,58 +73,14 @@ public class ChatAccountsList extends AppCompatActivity {
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) { }
         });
-
-
-
     }
-
-    public void searchItem(String text) {
-        int i;
-        for (i=0;i<list.size();i++){
-            if (!(list.get(i).getFirst_name().toLowerCase().contains(text.trim().toLowerCase()) ||
-                    list.get(i).getFamilly_name().toLowerCase().contains(text.toLowerCase().trim())) ){
-                list.remove(i);
-            }
-        }
-        adapterUser.notifyDataSetChanged();
-    }
-
-    List<Message> list_message ;
-    Message message ;
-    String lastMessage;
-
-    public String getLastMessage(String user_id){
-        message = new Message();
-        myRef = FirebaseDatabase.getInstance().getReference();
-        list_message = new ArrayList<Message>();
-        lastMessage ="";
-
-        myRef.child("Messages").child("room:"+user_id).addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()){
-                    message = dataSnapshot1.getValue(Message.class);
-                    list_message.add(message);
-                    lastMessage =message.getMessage_text();
-                }
-            }
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-        return lastMessage;
-
-    }
-
-
-int before = 0;
+    int before = 0;
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.accounts_menu,menu);
-       MenuItem menuItem = menu.findItem(R.id.app_bar_search);
+        MenuItem menuItem = menu.findItem(R.id.app_bar_search);
         final SearchView searchView = (SearchView) menuItem.getActionView();
         searchView.setQueryHint("Search here!..");
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
@@ -169,6 +110,7 @@ int before = 0;
                 return false;
             }
         });
+
         return true;
 
     }
@@ -181,7 +123,7 @@ int before = 0;
 
             case R.id.logout_action:
                 FirebaseAuth.getInstance().signOut();
-                startActivity(new Intent(ChatAccountsList.this,Login.class));
+                startActivity(new Intent(AccountsList.this,Login.class));
                 finish();
 
             break;
@@ -189,5 +131,19 @@ int before = 0;
         }
 
         return true;
+    }
+
+    public void searchItem(String text) {
+        int i;
+        for (i=0;i<list.size();i++){
+            if (!(list.get(i).getFirst_name().toLowerCase().contains(text.trim().toLowerCase()) ||
+                    list.get(i).getFamilly_name().toLowerCase().contains(text.toLowerCase().trim())) ){
+                list.remove(i);
+            }
+        }
+        adapterUser.notifyDataSetChanged();
+    }
+    public void addUser(View view) {
+        startActivity(new Intent(this,AddUser.class));
     }
 }

@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -57,7 +58,7 @@ public class Login extends AppCompatActivity {
         myDialog.setCancelable(false);
         myDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
         Button login = myDialog.findViewById(R.id.studentLoginBtn);
-        Button back = myDialog.findViewById(R.id.studentBackBtn);
+        ImageButton close = myDialog.findViewById(R.id.close);
 
         final EditText email = myDialog.findViewById(R.id.std_email);
         final EditText password = myDialog.findViewById(R.id.std_password);
@@ -74,7 +75,7 @@ public class Login extends AppCompatActivity {
                 logInUser(e,p);}
             }
         });
-        back.setOnClickListener(new View.OnClickListener() {
+        close.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 myDialog.dismiss();
@@ -87,7 +88,7 @@ public class Login extends AppCompatActivity {
         myDialog.setCancelable(false);
         myDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
         Button login = myDialog.findViewById(R.id.directorLoginBtn);
-        Button back = myDialog.findViewById(R.id.directorBackBtn);
+        ImageButton close = myDialog.findViewById(R.id.close);
 
 
         final EditText password = myDialog.findViewById(R.id.DirPassword);
@@ -101,7 +102,7 @@ public class Login extends AppCompatActivity {
 
             }
         });
-        back.setOnClickListener(new View.OnClickListener() {
+        close.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 myDialog.dismiss();
@@ -114,7 +115,7 @@ public class Login extends AppCompatActivity {
         myDialog.setCancelable(false);
         myDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
         Button login = myDialog.findViewById(R.id.teacherLoginBtn);
-        Button back = myDialog.findViewById(R.id.teacherBackBtn);
+        ImageButton close = myDialog.findViewById(R.id.close);
 
 
         final EditText password = myDialog.findViewById(R.id.teamPassword);
@@ -128,7 +129,7 @@ public class Login extends AppCompatActivity {
 
             }
         });
-        back.setOnClickListener(new View.OnClickListener() {
+        close.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 myDialog.dismiss();

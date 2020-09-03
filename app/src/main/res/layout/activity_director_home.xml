@@ -6,13 +6,48 @@
     android:layout_height="match_parent"
     tools:context=".DirectorHome">
 
-    <Button
-        android:layout_width="wrap_content"
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/dh_appbar"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="add"
-        android:text="add user"
+        app:layout_constraintTop_toTopOf="parent"
+        android:theme="@style/ThemeOverlay.AppCompat.Light"
+        android:backgroundTint="#fff"
+        app:liftOnScroll="true">
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/home_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </com.google.android.material.appbar.AppBarLayout>
+    <Button
+        android:id="@+id/button"
+        android:layout_width="142dp"
+        android:layout_height="82dp"
+
+        android:text="Chats"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:onClick="chat"/>
+
+    <Button
+        android:layout_width="142dp"
+        android:layout_height="82dp"
+
+        android:text="Posts"
+        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dh_appbar"
+        android:onClick="Posts"/>
+    <Button
+        android:layout_width="142dp"
+        android:layout_height="82dp"
+        android:text="Accounts"
+        app:layout_constraintTop_toBottomOf="@+id/button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:onClick="accountsList"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

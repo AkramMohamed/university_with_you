@@ -3,20 +3,22 @@ package com.example.universitywithyou;
 public class Post {
     private String id_post ;
     private String title , text_post, picture , directedTo , time ;
-    private int validPco , commentPco ;
+    private int viewsPco, commentPco ;
+    private Boolean byDirector ;
 
     public Post() {
     }
 
-    public Post(String id_post, String title, String text_post, String picture, String directedTo, String time, int validPco, int commentPco) {
+    public Post(String id_post, String title, String text_post, String picture, String directedTo, String time, int viewsPco, int commentPco, Boolean byDirector) {
         this.id_post = id_post;
         this.title = title;
         this.text_post = text_post;
         this.picture = picture;
         this.directedTo = directedTo;
         this.time = time;
-        this.validPco = validPco;
+        this.viewsPco = viewsPco;
         this.commentPco = commentPco;
+        this.byDirector = byDirector;
     }
 
     public String getId_post() {
@@ -67,12 +69,12 @@ public class Post {
         this.time = time;
     }
 
-    public int getValidPco() {
-        return validPco;
+    public int getViewsPco() {
+        return viewsPco;
     }
 
-    public void setValidPco(int validPco) {
-        this.validPco = validPco;
+    public void setViewsPco(int viewsPco) {
+        this.viewsPco = viewsPco;
     }
 
     public int getCommentPco() {
@@ -81,5 +83,13 @@ public class Post {
 
     public void setCommentPco(int commentPco) {
         this.commentPco = commentPco;
+    }
+
+    public Boolean getByDirector() {
+        return byDirector;
+    }
+
+    public void setByDirector(Boolean byDirector) {
+        this.byDirector = byDirector;
     }
 }

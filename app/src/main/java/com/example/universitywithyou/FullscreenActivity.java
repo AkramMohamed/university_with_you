@@ -8,16 +8,16 @@ import android.widget.ImageView;
 import com.squareup.picasso.Picasso;
 
 public class FullscreenActivity extends AppCompatActivity {
-ImageView imageView;
+ImageView imageView2;
 String image_url;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fullscreen);
-        imageView = findViewById(R.id.imageFullScreen);
+        imageView2 = findViewById(R.id.imageFullScreen);
         if (getIntent().hasExtra("image_url")){
             image_url=getIntent().getStringExtra("image_url");
-            Picasso.get().load(image_url).into(imageView);
+            Picasso.get().load(image_url).into(imageView2);
         }
     }
 }

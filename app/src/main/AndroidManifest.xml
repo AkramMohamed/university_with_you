@@ -11,22 +11,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".UserProfile"></activity>
+        <activity android:name=".AccountsList" />
         <activity
             android:name=".FullscreenActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            ></activity>
-        <activity
-            android:name=".CommentsList"
-             />
-        <activity android:name=".AddPost"
-            />
+            android:configChanges="orientation|keyboardHidden|screenSize" />
+        <activity android:name=".CommentsList" />
+        <activity android:name=".AddPost" />
         <activity
             android:name=".PostsManagement"
-            android:label="@string/title_activity_post_management"
-             />
-        <activity
-            android:name=".ChatAccountsList"
-             />
+            android:label="@string/title_activity_post_management" />
+        <activity android:name=".ChatAccountsList" />
         <activity android:name=".ChatHomeUser" />
         <activity android:name=".ChatRoom" />
         <activity
@@ -34,8 +29,11 @@
             android:label="@string/title_activity_listening_team_home" />
         <activity android:name=".AddUser" />
         <activity android:name=".Setting" />
-        <activity android:name=".UserHome" />
-        <activity android:name=".DirectorHome" />
+        <activity android:name=".UserHome"
+            android:label="@string/title_activity_student_home"/>
+        <activity
+            android:name=".DirectorHome"
+            android:label="@string/title_activity_director_home" />
         <activity
             android:name=".Login"
             android:theme="@style/Theme.AppCompat.NoActionBar" />

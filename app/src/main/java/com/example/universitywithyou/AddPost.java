@@ -20,10 +20,12 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
@@ -41,11 +43,15 @@ String post_id ;
 DatabaseReference myRef  ;
 String ref ;
 Spinner spinner ;
+ImageView posetPicture;
+TextView poster ;
+Boolean byDirector ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_post);
 
+        byDirector = false;
         spinner = findViewById(R.id.spinner);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,R.array.directedTo,android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -80,6 +86,13 @@ Spinner spinner ;
             }
         });
 
+        posetPicture = findViewById(R.id.posterPicture);
+        poster = findViewById(R.id.poster);
+        if (FirebaseAuth.getInstance().getCurrentUser().getEmail().equals("admin@gmail.com")){
+            posetPicture.setImageResource(R.drawable.director);
+            poster.setText("Director");
+            byDirector=true;
+        }
 
     }
 
@@ -129,7 +142,7 @@ Spinner spinner ;
                                     @Override
                                     public void onSuccess(Uri uri) {
                                         final String downloadUrl = uri.toString();
-                                        myRef.setValue(new Post(ref,"",post_text.getText().toString().trim(),downloadUrl,directedTo,time,0,0));
+                                        myRef.setValue(new Post(ref,"",post_text.getText().toString().trim(),downloadUrl,directedTo,time,0,0,byDirector));
                                         relativeLayout_img.setVisibility(View.GONE);
                                     }
                                 }).addOnFailureListener(new OnFailureListener() {
@@ -152,7 +165,7 @@ Spinner spinner ;
             }else {
                 if (! post_text.getText().toString().equals("")){
                     myRef.setValue(new Post(ref,""
-                            ,post_text.getText().toString().trim(),"none",directedTo,time,0,0));
+                            ,post_text.getText().toString().trim(),"none",directedTo,time,0,0,byDirector));
                     relativeLayout_img.setVisibility(View.GONE);
                     finish();}
             }
@@ -168,5 +181,9 @@ String directedTo;
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
 
+    }
+
+    public void cancel(View view) {
+        finish();
     }
 }

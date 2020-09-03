@@ -13,6 +13,8 @@ package com.example.universitywithyou;
 
         import androidx.annotation.NonNull;
         import androidx.annotation.Nullable;
+        import androidx.core.app.ActivityOptionsCompat;
+        import androidx.core.view.ViewCompat;
 
         import com.google.firebase.auth.FirebaseAuth;
         import com.google.firebase.auth.FirebaseUser;
@@ -106,7 +108,7 @@ public class AdapeterMessage  extends ArrayAdapter<Message> {
                     TextView messageLeft = viewLeft.findViewById(R.id.message_text_left);
                     messageLeft.setText(list.get(position).getMessage_text());
 
-                    ImageButton imageView = viewLeft.findViewById(R.id.message_img_left);
+                    final ImageButton imageView = viewLeft.findViewById(R.id.message_img_left);
                     if (!list.get(position).getPicture().equals("none")){
                         imageView.setVisibility(View.VISIBLE);
                     Picasso.get().load(list.get(position).getPicture()).resize(320,0).into(imageView);
@@ -116,7 +118,8 @@ public class AdapeterMessage  extends ArrayAdapter<Message> {
                         public void onClick(View v) {
                             Intent intent = new Intent(activity,FullscreenActivity.class);
                             intent.putExtra("image_url",list.get(position).getPicture());
-                            activity.startActivity(intent);
+                            ActivityOptionsCompat optionsCompat = ActivityOptionsCompat.makeSceneTransitionAnimation(activity,imageView, ViewCompat.getTransitionName(imageView));
+                            activity.startActivity(intent,optionsCompat.toBundle());
                         }
                     });
                     return viewLeft;
