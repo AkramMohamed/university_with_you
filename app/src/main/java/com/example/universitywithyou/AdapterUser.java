@@ -47,7 +47,7 @@ public class AdapterUser  extends ArrayAdapter {
 
 
         TextView name = view.findViewById(R.id.full_name);
-        name.setText(list.get(position).getFirst_name()+" "+list.get(position).getFamilly_name());
+        name.setText(list.get(position).getFirst_name()+" "+list.get(position).getFamily_name());
 
         ImageView imageView =view.findViewById(R.id.deleg);
         if(list.get(position).getDeleg()) {

@@ -2,6 +2,7 @@ package com.example.universitywithyou;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,28 +18,14 @@ import com.google.firebase.auth.FirebaseUser;
 
 
 public class UserHome extends AppCompatActivity {
-TextView textView ;
-Button posts;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_home);
-        textView = findViewById(R.id.textView);
-        posts = findViewById(R.id.posts);
 
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        if (user != null) {
-
-            String uid = user.getUid();
-            textView.setText(uid);
-        }
-
-        posts.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(UserHome.this,PostsManagement.class));
-            }
-        });
+        Toolbar toolbar = findViewById(R.id.home_toolbar);
+        setSupportActionBar(toolbar);
 
     }
 
@@ -67,5 +54,13 @@ Button posts;
 
     public void chat(View view) {
         startActivity(new Intent(this,ChatHomeUser.class));
+    }
+
+    public void Posts(View view) {
+        startActivity(new Intent(UserHome.this,PostsManagement.class));
+    }
+
+    public void myProfile(View view) {
+        startActivity(new Intent(this,UserProfile.class));
     }
 }

@@ -24,6 +24,7 @@ package com.example.universitywithyou;
         import androidx.core.view.ViewCompat;
 
 
+        import com.google.android.gms.tasks.OnFailureListener;
         import com.google.firebase.auth.FirebaseAuth;
         import com.google.firebase.database.FirebaseDatabase;
         import com.google.firebase.storage.FirebaseStorage;
@@ -128,9 +129,16 @@ public class AdapterPost extends ArrayAdapter implements View.OnClickListener,Po
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 //delete comments
-                                FirebaseDatabase.getInstance().getReference().child("Comments").child("post:"+post.getId_post()).removeValue();
+
+                                FirebaseDatabase.getInstance().getReference().child("Comments").child("post:"+post.getId_post()).removeValue().addOnFailureListener(new OnFailureListener() {
+                                    @Override
+                                    public void onFailure(@NonNull Exception e) {
+                                        Toast.makeText(activity, e.getMessage(), Toast.LENGTH_SHORT).show();
+                                    }
+                                });
                                 //delete picture
-                                FirebaseStorage.getInstance().getReferenceFromUrl(post.getPicture()).delete();
+                               /*
+                                FirebaseStorage.getInstance().getReferenceFromUrl(post.getPicture()).delete();*/
                                 //delete post
                                 FirebaseDatabase.getInstance().getReference().child("Posts").child(post.getId_post()).removeValue();
 

@@ -4,15 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AccountsList">
+    tools:context=".AccountsList"
+    android:background="@drawable/bg_btn_home">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/al_appbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
-        android:theme="@style/ThemeOverlay.AppCompat.Light"
-        android:backgroundTint="#fff"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark"
+        android:backgroundTint="#5603C9"
         >
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/accounts_list_toolbar"

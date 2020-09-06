@@ -59,11 +59,11 @@ public class Setting extends AppCompatActivity {
                                             }
                                         }
                                     });
+                        }else {
+                            Toast.makeText(Setting.this, "confirm password is nit the same !..", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
-
-
 
     }
 }

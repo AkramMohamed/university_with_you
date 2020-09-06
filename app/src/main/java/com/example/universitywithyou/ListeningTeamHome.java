@@ -23,9 +23,7 @@ public class ListeningTeamHome extends AppCompatActivity {
         setSupportActionBar(toolbar);
     }
 
-    public void chatAccounts(View view) {
-        startActivity(new Intent(this,ChatAccountsList.class));
-    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -49,5 +47,13 @@ public class ListeningTeamHome extends AppCompatActivity {
 
     public void Posts(View view) {
         startActivity(new Intent(this,PostsManagement.class));
+    }
+
+    public void accountsList(View view) {
+        startActivity(new Intent(this,AccountsList.class));
+    }
+
+    public void chat(View view) {
+        startActivity(new Intent(this,ChatAccountsList.class));
     }
 }

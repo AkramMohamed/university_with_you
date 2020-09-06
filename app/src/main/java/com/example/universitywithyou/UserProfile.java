@@ -15,13 +15,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-
-import java.util.ArrayList;
 
 public class UserProfile extends AppCompatActivity {
 private TextView deleg, fullname , firstname , familyname , cardnumber , speciality , email ;
@@ -44,7 +43,8 @@ User user; DatabaseReference myRef ;private String user_id ;
         if (FirebaseAuth.getInstance().getCurrentUser().getEmail().equals("admin@gmail.com")
                 ||FirebaseAuth.getInstance().getCurrentUser().getEmail().equals("team@gmail.com")){
             user_id = getIntent().getStringExtra("user_id");
-        }
+        }else  {user_id = FirebaseAuth.getInstance().getCurrentUser().getUid();}
+
         ImageView imageView1 = findViewById(R.id.profile_picture);
         setProfile();
     }
@@ -62,9 +62,9 @@ User user; DatabaseReference myRef ;private String user_id ;
 
                     user = dataSnapshot1.getValue(User.class);
                     if (user.getId_user().equals(user_id)) {
-                        fullname.setText(user.getFirst_name() + " " + user.getFamilly_name());
+                        fullname.setText(user.getFirst_name() + " " + user.getFamily_name());
                         firstname.setText(user.getFirst_name());
-                        familyname.setText(user.getFamilly_name());
+                        familyname.setText(user.getFamily_name());
                         cardnumber.setText(user.getCard_number());
                         speciality.setText(user.getSpeciality());
                         email.setText(user.getEmail());
@@ -79,6 +79,7 @@ User user; DatabaseReference myRef ;private String user_id ;
                 Toast.makeText(UserProfile.this, databaseError.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
+
     }
 
     @Override
@@ -88,12 +89,14 @@ User user; DatabaseReference myRef ;private String user_id ;
         return true;
     }
 
+
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
             case R.id.edit_profile :
-                startActivity(new Intent(this,Login.class));
-                finish();
+                Intent intent = new Intent(UserProfile.this,EditProfile.class);
+                intent.putExtra("user_id",user_id);
+                startActivity(intent);
             break;
 
         }

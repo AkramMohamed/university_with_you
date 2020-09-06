@@ -67,6 +67,7 @@ public class AdapeterMessage  extends ArrayAdapter<Message> {
                         imageView.setVisibility(View.VISIBLE);
                     Picasso.get().load(list.get(position).getPicture()).resize(320,0).into(imageView);
                     }
+
                     imageView.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {

@@ -5,37 +5,214 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".UserHome">
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/uh_appbar"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        android:textSize="26sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.346"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.096" />
+        android:theme="@style/ThemeOverlay.AppCompat.Dark"
+        android:backgroundTint="#5603C9"
+        app:liftOnScroll="true">
 
-    <Button
-        android:id="@+id/posts"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Posts"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/home_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </com.google.android.material.appbar.AppBarLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="00dp"
+        app:layout_constraintTop_toBottomOf="@+id/uh_appbar"
+        app:layout_constraintBottom_toBottomOf="parent">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Chats"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/posts"
-        android:onClick="chat"/>
+        <RelativeLayout
+            android:id="@+id/posts_list"
+            android:layout_width="match_parent"
+            android:layout_height="00dp"
+            app:layout_constraintBottom_toTopOf="@+id/center"
+            app:layout_constraintTop_toTopOf="parent"
+            android:background="@drawable/bg_btn_home"
+            android:onClick="Posts">
+
+            <TextView
+                android:id="@+id/posts_title"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Posts"
+                android:textSize="40sp"
+                android:textColor="#000"
+                android:gravity="center_vertical"
+                android:background="@drawable/bg_triangle"
+                android:paddingHorizontal="16dp" />
+
+            <LinearLayout
+                android:layout_toRightOf="@+id/posts_title"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center_horizontal">
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="60dp"
+                        android:src="@drawable/announces"
+                        android:backgroundTint="#fff" />
+
+                    <TextView
+                        android:layout_marginTop="26dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:text="list of important announces and necessary information to share between administration and students"
+                        android:textSize="18sp"
+                        android:textAlignment="center"
+                        android:textColor="#fff"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="show publications and recognize last details"
+                        android:gravity="bottom"/>
+                </LinearLayout>
+            </LinearLayout>
+
+        </RelativeLayout>
+        <RelativeLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="00dp"
+            app:layout_constraintBottom_toBottomOf="@id/center2"
+            app:layout_constraintTop_toBottomOf="@+id/center"
+            android:background="@drawable/bg_btn_home"
+            android:onClick="myProfile"
+            android:layout_marginTop="5dp">
+
+            <TextView
+                android:id="@+id/accounts_title"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Profile"
+                android:textSize="40sp"
+                android:textColor="#000"
+                android:gravity="center_vertical"
+                android:background="@drawable/bg_triangle"
+                android:paddingHorizontal="16dp" />
+
+            <LinearLayout
+                android:layout_toRightOf="@+id/accounts_title"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="60dp"
+                        android:src="@drawable/profile"
+                        android:backgroundTint="#fff" />
+
+                    <TextView
+                        android:layout_marginTop="20dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:text="profile details"
+                        android:textSize="18sp"
+                        android:textAlignment="center"
+                        android:textColor="#fff"
+                        />
+                    <TextView
+                        android:layout_marginStart="6dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="show, edit and manage your profile"
+                        android:gravity="bottom"/>
+                </LinearLayout>
+            </LinearLayout>
+
+        </RelativeLayout>
+        <RelativeLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="00dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/center2"
+            android:background="@drawable/bg_btn_home"
+            android:onClick="chat"
+            android:layout_marginTop="5dp"
+            >
+
+            <TextView
+                android:id="@+id/chat_title"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Chats"
+                android:textSize="40sp"
+                android:textColor="#000"
+                android:gravity="center_vertical"
+                android:background="@drawable/bg_triangle"
+                android:paddingHorizontal="16dp" />
+
+            <LinearLayout
+                android:layout_toRightOf="@+id/chat_title"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="60dp"
+                        android:src="@drawable/chat"
+                        android:backgroundTint="#fff" />
+
+                    <TextView
+                        android:layout_marginTop="16dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:text="contact administration and use it as complaint box"
+                        android:textSize="18sp"
+                        android:textAlignment="center"
+                        android:textColor="#fff"
+                        />
+                    <TextView
+                        android:layout_marginStart="6dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="send and receive message with listening team"
+                        android:gravity="bottom"/>
+                </LinearLayout>
+            </LinearLayout>
+
+        </RelativeLayout>
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.4" />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/center2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.68" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

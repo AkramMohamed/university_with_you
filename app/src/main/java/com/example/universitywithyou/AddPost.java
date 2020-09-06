@@ -130,7 +130,7 @@ Boolean byDirector ;
     public void addPost(View view) {
         Calendar calendar = Calendar.getInstance();
         final String  time = new SimpleDateFormat("hh:mm dd-MMM-yyyy").format(calendar.getTime());
-
+        final int sort = getIntent().getIntExtra("sort",0);
             if (mImageUri!=null){
                 storageReference = FirebaseStorage.getInstance().getReference().child("Posts").child(ref)
                         .child(System.currentTimeMillis()+"."+getFileExtention(mImageUri));
@@ -142,7 +142,7 @@ Boolean byDirector ;
                                     @Override
                                     public void onSuccess(Uri uri) {
                                         final String downloadUrl = uri.toString();
-                                        myRef.setValue(new Post(ref,"",post_text.getText().toString().trim(),downloadUrl,directedTo,time,0,0,byDirector));
+                                        myRef.setValue(new Post(ref,"",post_text.getText().toString().trim(),downloadUrl,directedTo,time,0,0,sort,byDirector));
                                         relativeLayout_img.setVisibility(View.GONE);
                                     }
                                 }).addOnFailureListener(new OnFailureListener() {
@@ -165,7 +165,7 @@ Boolean byDirector ;
             }else {
                 if (! post_text.getText().toString().equals("")){
                     myRef.setValue(new Post(ref,""
-                            ,post_text.getText().toString().trim(),"none",directedTo,time,0,0,byDirector));
+                            ,post_text.getText().toString().trim(),"none",directedTo,time,0,0,sort,byDirector));
                     relativeLayout_img.setVisibility(View.GONE);
                     finish();}
             }

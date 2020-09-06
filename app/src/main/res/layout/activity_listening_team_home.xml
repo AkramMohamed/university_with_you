@@ -11,32 +11,207 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
-        android:theme="@style/ThemeOverlay.AppCompat.Light"
-        android:backgroundTint="#fff"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark"
+        android:backgroundTint="#5603C9"
         app:liftOnScroll="true">
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/home_toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
     </com.google.android.material.appbar.AppBarLayout>
-    <Button
-        android:id="@+id/button"
-        android:layout_width="142dp"
-        android:layout_height="82dp"
-        android:onClick="chatAccounts"
-        android:text="Chats"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="00dp"
+        app:layout_constraintTop_toBottomOf="@+id/lth_appbar"
+        app:layout_constraintBottom_toBottomOf="parent">
 
-    <Button
-        android:layout_width="142dp"
-        android:layout_height="82dp"
-        android:onClick="Posts"
-        android:text="Posts"
-        app:layout_constraintBottom_toTopOf="@+id/button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lth_appbar" />
+        <RelativeLayout
+            android:id="@+id/posts_list"
+            android:layout_width="match_parent"
+            android:layout_height="00dp"
+            app:layout_constraintBottom_toTopOf="@+id/center"
+            app:layout_constraintTop_toTopOf="parent"
+            android:background="@drawable/bg_btn_home"
+            android:onClick="Posts">
+
+            <TextView
+                android:id="@+id/posts_title"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Posts"
+                android:textSize="30sp"
+                android:textColor="#000"
+                android:gravity="center_vertical"
+                android:background="@drawable/bg_triangle"
+                android:paddingHorizontal="16dp" />
+
+            <LinearLayout
+                android:layout_toRightOf="@+id/posts_title"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center_horizontal">
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="60dp"
+                        android:src="@drawable/announces"
+                        android:backgroundTint="#fff" />
+
+                    <TextView
+                        android:layout_marginTop="20dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:text="list of important announces and necessary information to share between administration and students"
+                        android:textSize="18sp"
+                        android:textAlignment="center"
+                        android:textColor="#fff"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="show, add, edit and manage publications"
+                        android:gravity="bottom"/>
+                </LinearLayout>
+            </LinearLayout>
+
+        </RelativeLayout>
+        <RelativeLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="00dp"
+            app:layout_constraintBottom_toBottomOf="@id/center2"
+            app:layout_constraintTop_toBottomOf="@+id/center"
+            android:background="@drawable/bg_btn_home"
+            android:onClick="accountsList"
+            android:layout_marginTop="3dp">
+
+            <TextView
+                android:id="@+id/accounts_title"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Accounts"
+                android:textSize="26sp"
+                android:textColor="#000"
+                android:gravity="center_vertical"
+                android:background="@drawable/bg_triangle"
+                android:paddingHorizontal="16dp" />
+
+            <LinearLayout
+                android:layout_toRightOf="@+id/accounts_title"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="60dp"
+                        android:src="@drawable/accounts"
+                        android:backgroundTint="#fff" />
+
+                    <TextView
+                        android:layout_marginTop="16dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:text="list of students accounts"
+                        android:textSize="18sp"
+                        android:textAlignment="center"
+                        android:textColor="#fff"
+                        />
+                    <TextView
+                        android:layout_marginStart="6dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="show students profiles and verify details"
+                        android:gravity="bottom"/>
+                </LinearLayout>
+            </LinearLayout>
+
+        </RelativeLayout>
+        <RelativeLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="00dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/center2"
+            android:background="@drawable/bg_btn_home"
+            android:onClick="chat"
+            android:layout_marginTop="2dp"
+            >
+
+            <TextView
+                android:id="@+id/chat_title"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Chats"
+                android:textSize="30sp"
+                android:textColor="#000"
+                android:gravity="center_vertical"
+                android:background="@drawable/bg_triangle"
+                android:paddingHorizontal="16dp" />
+
+            <LinearLayout
+                android:layout_toRightOf="@+id/chat_title"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="60dp"
+                        android:src="@drawable/chat"
+                        android:backgroundTint="#fff" />
+
+                    <TextView
+                        android:layout_marginTop="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:text="contact students and Respond to the concerns of the students"
+                        android:textSize="18sp"
+                        android:textAlignment="center"
+                        android:textColor="#fff"
+                        />
+                    <TextView
+                        android:layout_marginStart="6dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="send and receive message with students"
+                        android:gravity="bottom"/>
+                </LinearLayout>
+            </LinearLayout>
+
+        </RelativeLayout>
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.4" />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/center2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.68" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

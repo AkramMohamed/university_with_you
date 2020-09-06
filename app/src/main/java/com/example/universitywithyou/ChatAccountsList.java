@@ -6,23 +6,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.Typeface;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.SearchView;
-import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -80,7 +71,9 @@ public class ChatAccountsList extends AppCompatActivity {
 
                     user = dataSnapshot1.getValue(User.class);
 
-                    list.add(user);
+                    if (!user.getEmail().equals("admin@gmail.com")&&!user.getEmail().equals("team@gmail.com")){
+                        list.add(user);
+                    }
                     listView.setAdapter(adapterUser);
                 }
 
@@ -97,7 +90,7 @@ public class ChatAccountsList extends AppCompatActivity {
         int i;
         for (i=0;i<list.size();i++){
             if (!(list.get(i).getFirst_name().toLowerCase().contains(text.trim().toLowerCase()) ||
-                    list.get(i).getFamilly_name().toLowerCase().contains(text.toLowerCase().trim())) ){
+                    list.get(i).getFamily_name().toLowerCase().contains(text.toLowerCase().trim())) ){
                 list.remove(i);
             }
         }

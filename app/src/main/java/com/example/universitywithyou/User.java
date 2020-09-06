@@ -2,7 +2,7 @@ package com.example.universitywithyou;
 
 public class User {
     private String id_user;
-    private String card_number, first_name, familly_name;
+    private String card_number, first_name, family_name;
     private String speciality, email, password;
     private Boolean deleg, isDirector, isTeamListening;
 
@@ -10,23 +10,12 @@ public class User {
     public User() {
     }
 
-    public User(String id_user, String card_number, String first_name, String familly_name, String speciality, String email, String password, Boolean deleg) {
+    public User(String id_user, String card_number, String first_name, String family_name, String speciality, String email, String password, Boolean deleg, Boolean isDirector, Boolean isTeamListening) {
 
         this.id_user = id_user;
         this.card_number = card_number;
         this.first_name = first_name;
-        this.familly_name = familly_name;
-        this.speciality = speciality;
-        this.email = email;
-        this.password = password;
-        this.deleg = deleg;
-    }
-
-    public User(String id_user, String card_number, String first_name, String familly_name, String speciality, String email, String password, Boolean deleg, Boolean isDirector, Boolean isTeamListening) {
-        this.id_user = id_user;
-        this.card_number = card_number;
-        this.first_name = first_name;
-        this.familly_name = familly_name;
+        this.family_name = family_name;
         this.speciality = speciality;
         this.email = email;
         this.password = password;
@@ -35,6 +24,20 @@ public class User {
         this.isTeamListening = isTeamListening;
     }
 
+   /* public User(String id_user, String card_number, String first_name, String family_name, String speciality, String email, String password, Boolean deleg, Boolean isDirector, Boolean isTeamListening) {
+
+        this.id_user = id_user;
+        this.card_number = card_number;
+        this.first_name = first_name;
+        this.family_name = family_name;
+        this.speciality = speciality;
+        this.email = email;
+        this.password = password;
+        this.deleg = deleg;
+        this.isDirector = isDirector;
+        this.isTeamListening = isTeamListening;
+    }
+*/
     public String getId_user() {
         return id_user;
     }
@@ -59,12 +62,12 @@ public class User {
         this.first_name = first_name;
     }
 
-    public String getFamilly_name() {
-        return familly_name;
+    public String getFamily_name() {
+        return family_name;
     }
 
-    public void setFamilly_name(String familly_name) {
-        this.familly_name = familly_name;
+    public void setFamily_name(String family_name) {
+        this.family_name = family_name;
     }
 
     public String getSpeciality() {

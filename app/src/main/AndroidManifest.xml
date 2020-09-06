@@ -6,13 +6,16 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/uwu2"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".UserProfile"></activity>
-        <activity android:name=".AccountsList" />
+        <activity android:name=".EditProfile"
+            android:label="@string/title_edit_profile"></activity>
+        <activity android:name=".UserProfile" />
+        <activity android:name=".AccountsList"
+            android:label="@string/title_activity_accountsList"/>
         <activity
             android:name=".FullscreenActivity"
             android:configChanges="orientation|keyboardHidden|screenSize" />
@@ -22,15 +25,17 @@
             android:name=".PostsManagement"
             android:label="@string/title_activity_post_management" />
         <activity android:name=".ChatAccountsList" />
-        <activity android:name=".ChatHomeUser" />
+        <activity android:name=".ChatHomeUser"
+            android:label="@string/title_activity_chat"/>
         <activity android:name=".ChatRoom" />
         <activity
             android:name=".ListeningTeamHome"
             android:label="@string/title_activity_listening_team_home" />
         <activity android:name=".AddUser" />
         <activity android:name=".Setting" />
-        <activity android:name=".UserHome"
-            android:label="@string/title_activity_student_home"/>
+        <activity
+            android:name=".UserHome"
+            android:label="@string/title_activity_student_home" />
         <activity
             android:name=".DirectorHome"
             android:label="@string/title_activity_director_home" />

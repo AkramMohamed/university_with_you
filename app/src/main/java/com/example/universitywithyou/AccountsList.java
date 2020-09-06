@@ -64,8 +64,9 @@ public class AccountsList extends AppCompatActivity {
                 for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()){
 
                     user = dataSnapshot1.getValue(User.class);
-
-                    list.add(user);
+                    if (!user.getEmail().equals("admin@gmail.com")&&!user.getEmail().equals("team@gmail.com")){
+                        list.add(user);
+                    }
                     listView.setAdapter(adapterUser);
                 }
 
@@ -137,7 +138,7 @@ public class AccountsList extends AppCompatActivity {
         int i;
         for (i=0;i<list.size();i++){
             if (!(list.get(i).getFirst_name().toLowerCase().contains(text.trim().toLowerCase()) ||
-                    list.get(i).getFamilly_name().toLowerCase().contains(text.toLowerCase().trim())) ){
+                    list.get(i).getFamily_name().toLowerCase().contains(text.toLowerCase().trim())) ){
                 list.remove(i);
             }
         }

@@ -14,6 +14,9 @@
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="title_activity_director_home">Director Home</string>
     <string name="title_activity_student_home">Student Home</string>
+    <string name="title_activity_accountsList">Accounts List</string>
+    <string name="title_edit_profile">Edit Profile</string>
+    <string name="title_activity_chat">Chat</string>
 
     <string-array name="speciality">
         <item>none</item>

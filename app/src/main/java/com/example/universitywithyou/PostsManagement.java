@@ -64,7 +64,7 @@ public class PostsManagement extends AppCompatActivity {
         myRef = FirebaseDatabase.getInstance().getReference() ;
         adapterPost = new AdapterPost(this,R.layout.item_post,list);
 
-        myRef.child("Posts").addValueEventListener(new ValueEventListener() {
+        myRef.child("Posts").orderByChild("sort").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 list.clear();
@@ -75,7 +75,7 @@ public class PostsManagement extends AppCompatActivity {
                     list.add(post);
 
                 }
-                Collections.reverse(list);
+
                 listView.setAdapter(adapterPost);
             }
             @Override
@@ -111,6 +111,7 @@ public class PostsManagement extends AppCompatActivity {
         switch (item.getItemId()){
             case R.id.add_post :
                 Intent intent = new Intent(this,AddPost.class);
+                intent.putExtra("sort",0-list.size());
                 startActivity(intent);
 
             break;

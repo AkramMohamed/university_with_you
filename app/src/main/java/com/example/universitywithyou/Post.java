@@ -3,13 +3,13 @@ package com.example.universitywithyou;
 public class Post {
     private String id_post ;
     private String title , text_post, picture , directedTo , time ;
-    private int viewsPco, commentPco ;
+    private int viewsPco, commentPco ,sort ;
     private Boolean byDirector ;
 
     public Post() {
     }
 
-    public Post(String id_post, String title, String text_post, String picture, String directedTo, String time, int viewsPco, int commentPco, Boolean byDirector) {
+    public Post(String id_post, String title, String text_post, String picture, String directedTo, String time, int viewsPco, int commentPco,int sort, Boolean byDirector) {
         this.id_post = id_post;
         this.title = title;
         this.text_post = text_post;
@@ -18,6 +18,7 @@ public class Post {
         this.time = time;
         this.viewsPco = viewsPco;
         this.commentPco = commentPco;
+        this.sort = sort;
         this.byDirector = byDirector;
     }
 
@@ -91,5 +92,13 @@ public class Post {
 
     public void setByDirector(Boolean byDirector) {
         this.byDirector = byDirector;
+    }
+
+    public int getSort() {
+        return sort;
+    }
+
+    public void setSort(int sort) {
+        this.sort = sort;
     }
 }

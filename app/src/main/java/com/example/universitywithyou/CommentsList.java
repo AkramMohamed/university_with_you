@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -64,7 +63,7 @@ public class CommentsList extends AppCompatActivity {
                     user = dataSnapshot.getValue(User.class);
 
                     user_id = user.getId_user();
-                    commentator = user.getFirst_name() +" "+ user.getFamilly_name();
+                    commentator = user.getFirst_name() +" "+ user.getFamily_name();
 
             }
             @Override

@@ -64,7 +64,7 @@ public class AddUser extends AppCompatActivity implements AdapterView.OnItemSele
                             FirebaseDatabase.getInstance().getReference("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid())
                                     .setValue(new User(FirebaseAuth.getInstance().getCurrentUser().getUid()
                                             ,card_number.getText().toString(),first_name.getText().toString()
-                                            ,familly_name.getText().toString(),speciality,email,password,false));
+                                            ,familly_name.getText().toString(),speciality,email,password,false,false,false));
                             finish();
 
                         } else {

@@ -4,14 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".PostsManagement">
+    tools:context=".PostsManagement"
+    android:background="@drawable/bg_btn_home">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/posts_appbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:backgroundTint="#fff"
-        android:theme="@style/ThemeOverlay.AppCompat.Light"
+        android:backgroundTint="#5603C9"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark"
         >
 
         <androidx.appcompat.widget.Toolbar
